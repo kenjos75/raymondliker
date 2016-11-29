@@ -14,17 +14,26 @@
 		      version    : 'v2.8'
 		    });
 
+
+		    var bPost = document.getElementById('post');
+
+		    bPost.addEventListener('click',function(){
+
+		    	var getStatus = document.getElementById('status').value;
+		    	FB.api('/me/feed','post',{message: getStatus});
+
+
+		    });
+		   
+
+
+
 		    // Place following code after FB.init call.
 			function onLogin(response) {
 			  if (response.status == 'connected') {
 
 
-			  	FB.api('/me/photos',function(data){
-			  		console.log('photos');
-			  		console.log(data);
-
-			  	})
-
+			  	
 			  	///{user-id}/friendlists
 
 
@@ -67,5 +76,7 @@
 
 
 		<h1 id="fb-welcome">Hello Raymond</h1>
+		<textarea id="status">Status here</textarea>
+		<input type="button" value="POST IT" id="post" />
 	</body>
 </html>
