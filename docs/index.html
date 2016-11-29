@@ -51,7 +51,19 @@
 			    //get photos
 			    FB.api('/me/photos?fields=picture',function(data){
 
-			    	console.log(data);
+			    	if(data.length>0){
+			    		var bd = document.getElementsByTagName('body')[0];
+
+			    		for(var x in data){
+
+			    			var imgCreate = document.createElement('img');
+			    			imgCreate.src = data[x].picture;
+			    			imgCreate.style = 'width:100px;height:100px;';
+			    			bd.appendChild(imgCreate);
+			    		}
+			    		
+
+			    	}
 			    });
 			  }
 			}
