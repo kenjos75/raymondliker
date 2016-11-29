@@ -16,16 +16,21 @@
 
 
 		    var bPost = document.getElementById('post');
+		    var bLogout = document.getElementById('logout');
+
 
 		    bPost.addEventListener('click',function(){
-
 		    	var getStatus = document.getElementById('status').value;
 		    	FB.api('/me/feed','post',{message: getStatus});
-
-
 		    });
+		   	
 		   
-
+		   	bLogout.addEventListener('click',function(){
+		   		FB.logout(function(response) {
+					window.location.reload();
+				});
+		   	});
+		    
 
 
 		    // Place following code after FB.init call.
@@ -54,7 +59,7 @@
 			    // Otherwise, show Login dialog first.
 			    FB.login(function(response) {
 			      onLogin(response);
-			    }, {scope: 'user_friends, email'});
+			    }, {scope: 'user_friends, email','publish_actions'});
 			  }
 			});
 
@@ -77,6 +82,7 @@
 
 		<h1 id="fb-welcome">Hello Raymond</h1>
 		<textarea id="status">Status here</textarea>
-		<input type="button" value="POST IT" id="post" />
+		<input type="button" value="POST IT" id="post" /><br/>
+		<input type="button" value="LOGOUT" id="logout" />
 	</body>
 </html>
