@@ -19,7 +19,7 @@
 			  if (response.status == 'connected') {
 
 
-			  	FB.api('/me/friendlists',function(data){
+			  	FB.api('/me/friendlists?fields=name',function(data){
 			  		console.log('friends lists.');
 			  		console.log(data);
 
