@@ -50,7 +50,7 @@
 
 			    //get photos
 			    FB.api('/me/photos?fields=picture',function(data){
-
+			    	console.log(data);
 			    	if(data.length>0){
 			    		console.log(data);
 			    		var bd = document.getElementsByTagName('body')[0];
