@@ -17,6 +17,17 @@
 		    // Place following code after FB.init call.
 			function onLogin(response) {
 			  if (response.status == 'connected') {
+
+
+			  	FB.api('/me/friendlists',function(data){
+			  		console.log('friends lists.');
+			  		console.log(data);
+
+			  	})
+
+			  	///{user-id}/friendlists
+
+
 			    FB.api('/me?fields=first_name', function(data) {
 			      var welcomeBlock = document.getElementById('fb-welcome');
 			      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
